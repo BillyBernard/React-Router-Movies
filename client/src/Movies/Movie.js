@@ -3,13 +3,13 @@ import axios from 'axios';
 import { Route, Switch, useRouteMatch, useParams, NavLink} from 'react-router-dom';
 
 export default function Movie(props) {
-  const {movies} = props
+  //const {movies} = props
   const [movie, setMovie] = useState();
   const {movieID} = useParams();
   //const { url, path } = useRouteMatch();
   
-  const id = movies.find(movie => movie.id === parseInt(movieID));
-  console.log(id);
+  //const id = movies.find(movie => movie.id === parseInt(movieID));
+  
   
 
   //let id = 0;
@@ -18,7 +18,7 @@ export default function Movie(props) {
   useEffect(() => {
     
     axios
-      .get(`http://localhost:5000/api/movies/${id.id}`) // Study this endpoint with Postman
+      .get(`http://localhost:5000/api/movies/${movieID}`) // Study this endpoint with Postman
       .then(response => {
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
@@ -29,7 +29,7 @@ export default function Movie(props) {
       });
     // This effect should run every time time
     // the `id` changes... How could we do this?
-  }, [id]);
+  }, []);
 
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = evt => { }
